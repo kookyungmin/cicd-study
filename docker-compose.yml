@@ -1,0 +1,19 @@
+services:
+  jenkins:
+    container_name: cicd-jenkins
+    image: jenkins/jenkins:lts-jdk21
+    ports:
+      - "18080:8080"
+      - "50000:50000"
+    volumes:
+      - ${HOST_JENKINS_HOME}:/var/jenkins_home
+    restart: always
+    links:
+      - worker-1
+  worker-1: # 실제 작업을 실행하는 worker
+    container_name: cicd-jenkins-worker
+    image: jenkins/ssh-agent:latest-jdk21
+    volumes:
+      - ${HOST_JENKINS_WORKER_1}:/home/jenkins
+    environment:
+      - JENKINS_SLAVE_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCcu2ZlsQCfQwtsfiPhBS/LJ3y0jNg0eLvqj0C7wpELCtplAj6t8FdesiQaOhe/qyEgAWTkAsa/IcwNrtlpVIpvvzWrzDvnezQGqouJNBsucninSMmzzLbLXWOWWaptNxuJ49Ls8xAZKoUkbR3cSp61JUx9LJjgoUD20WAatVCh4T5xDed7Rzr0Iw6ZZS6qmGltvqxDzd2gj3iGtQOOOTaKuTn8MUCK7/1YZgyYk75zhbas2OvFGGMfZ61ABdlKCHWzrKg/UFG+8m1pFEuZgUqvkP6+TKBxf4vwIsV8kfqE4RihlSi9mmsjkoioeQIVoEkeiV3KFbIIaTFrAogncfxgfM3pymBy3S793vqgoUrp5pT5w/gZW0F0+8pkof957Fr2b2ahDGPsHW07cc2qTMA/3+cip8iYrqbm8pJFlPp20M5yyvTg325w3GBjr9vS5iQFOp5muwHQ183jCcsY+2UmC2L2/PRffYfrTpQBy4dnsVSB7nkEwftg2RSI0JEnkUU=
