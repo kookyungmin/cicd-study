@@ -16,3 +16,8 @@ Github Actions, Jenkins 를 활용한 CI / CD Study
 - [Git]
 - [Github Actions]
 - [Jekins]
+
+### 유용한 git 명령어
+
+```git restore --staged [file-name] : staged 상태에 있는 파일을 다시 되돌림```
+
