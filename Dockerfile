@@ -1,5 +1,5 @@
-FROM openjdk:21-jdk
-LABEL maintainer="happykoo"
+FROM eclipse-temurin:21-jdk
+LABEL maintainer="rudals4549"
 
 # jar 파일 위치를 변수로 설정
 ARG JARFILE=boot-app/build/libs/*.jar
