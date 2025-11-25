@@ -44,9 +44,8 @@ jobs:
           mv build/libs/cicd-0.0.1-SNAPSHOT.jar build/libs/cicd-study-${{ steps.set-version.outputs.VERSION_NAME }}.jar
 
       - name: Upload Artifact
-        working-directory: boot-app
         uses: actions/upload-artifact@v4
         with:
           name: cicd-study-application #cicd-study-application.zip runner에 upload
-          path: build/libs/cicd-study-${{ steps.set-version.outputs.VERSION_NAME }}.jar
+          path: boot-app/build/libs/cicd-study-${{ steps.set-version.outputs.VERSION_NAME }}.jar
         
