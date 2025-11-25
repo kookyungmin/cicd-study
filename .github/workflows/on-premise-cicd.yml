@@ -1,4 +1,4 @@
-name: on-promise-cicd
+name: on-premise-cicd
 on:
   workflow_dispatch:
     inputs:
