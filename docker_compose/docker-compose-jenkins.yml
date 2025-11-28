@@ -1,10 +1,4 @@
 services:
-  #  app:
-  #    image: rudals4549/cicd-study:latest
-  #    ports:
-  #      - 8080:8080
-  #    environment:
-  #      SPRING_PROFILES_ACTIVE: dev
   jenkins:
     container_name: cicd-jenkins
     image: happy-jenkins
