@@ -7,7 +7,8 @@ services:
   #      SPRING_PROFILES_ACTIVE: dev
   jenkins:
     container_name: cicd-jenkins
-    image: jenkins/jenkins:lts-jdk21
+    image: happy-jenkins
+    privileged: true
     ports:
       - "18080:8080"
       - "50000:50000"
